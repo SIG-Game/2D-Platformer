@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
         // Get left and right input (-1.0f to 1.0f)
         float horizontal = Input.GetAxis("Horizontal");
 
+        // Flip player if they are moving in the opposite direction
+        if (horizontal == -transform.localScale.x)
+        {
+            flipPlayer();
+        }
+
         // Velocities to be applied to the player
         float horizVel = horizontal * maxSpeed;
         float vertVel = rb2d.velocity.y;
@@ -78,5 +84,12 @@ public class PlayerController : MonoBehaviour
 
         Debug.DrawRay(lowerLeftPos, 0.02f * Vector2.down, leftDebugColor);
         Debug.DrawRay(lowerRightPos, 0.02f * Vector2.down, rightDebugColor);
+    }
+
+    void flipPlayer()
+    {
+        Vector3 flippedScale = transform.localScale;
+        flippedScale.x *= -1;
+        transform.localScale = flippedScale;
     }
 }
