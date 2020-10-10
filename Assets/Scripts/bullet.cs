@@ -6,10 +6,12 @@ public class bullet : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        // Set velocity to direction shot in times speed
+        rb.velocity = new Vector3(transform.localScale.x * speed, 0f, 0f);
     }
 
     void onHit(Collider2D HIT)

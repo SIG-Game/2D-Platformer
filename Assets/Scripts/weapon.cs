@@ -6,6 +6,7 @@ public class weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletpre;
+
     // Update is called once per frame
     void Update()
     {
@@ -17,6 +18,10 @@ public class weapon : MonoBehaviour
 
     void shoot ()
     {
-        Instantiate(bulletpre, firePoint.position,firePoint.rotation);
+        GameObject bullet = Instantiate(bulletpre, firePoint.position, firePoint.rotation);
+
+        // Set bullet x scale to player x scale (flips bullet if needed)
+        Vector3 newScale = new Vector3(transform.parent.localScale.x, 1f, 1f);
+        bullet.transform.localScale = newScale;
     }
 }

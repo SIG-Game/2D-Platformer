@@ -1630,7 +1630,6 @@ GameObject:
   - component: {fileID: 1964087757}
   - component: {fileID: 1964087756}
   - component: {fileID: 1964087755}
-  - component: {fileID: 1964087752}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -1638,21 +1637,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1964087752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964087751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fbce634a2ad246a6b98aea4fb8e8da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 1590431435}
-  bulletpre: {fileID: 313337084785691860, guid: d4d92896beafc4dbcad3d3f72c612bd3,
-    type: 3}
 --- !u!212 &1964087753
 SpriteRenderer:
   m_ObjectHideFlags: 0
