@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 173241502}
   - component: {fileID: 173241504}
   - component: {fileID: 173241503}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1581,7 +1581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1590431435}
   - component: {fileID: 1590431436}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: firePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 1964087757}
   - component: {fileID: 1964087756}
   - component: {fileID: 1964087755}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

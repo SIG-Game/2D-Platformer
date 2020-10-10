@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb2d;
     Vector2 colliderLowerLeft;
     Vector2 colliderLowerRight;
+    LayerMask groundMask;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
                                         collider.offset.y - collider.size.y / 2.0f);
         colliderLowerRight = new Vector2(collider.offset.x + collider.size.x / 2.0f,
                                          collider.offset.y - collider.size.y / 2.0f);
+
+        // Get a ground layer mask for raycasts that can only hit ground
+        groundMask = LayerMask.GetMask("Ground");
     }
 
     // Update is called once per frame
@@ -61,13 +65,13 @@ public class PlayerController : MonoBehaviour
         Vector2 lowerRightPos = (Vector2)transform.position + colliderLowerRight;
 
         // Cast rays down from the lower corners of the player collider
-        RaycastHit2D leftHit = Physics2D.Raycast(lowerLeftPos, Vector2.down, 0.02f);
-        RaycastHit2D rightHit = Physics2D.Raycast(lowerRightPos, Vector2.down, 0.02f);
+        RaycastHit2D leftHit = Physics2D.Raycast(lowerLeftPos, Vector2.down, 0.02f, groundMask);
+        RaycastHit2D rightHit = Physics2D.Raycast(lowerRightPos, Vector2.down, 0.02f, groundMask);
 
         // Draw rays for debugging
         // drawGroundCheckRays(lowerLeftPos, lowerRightPos, leftHit, rightHit);
 
-        // The player is grounded if the left or right ray hit something
+        // The player is grounded if the left or right ray hit ground
         return leftHit || rightHit;
     }
 
