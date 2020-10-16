@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     Vector2 colliderLowerLeft;
     Vector2 colliderLowerRight;
     LayerMask groundMask;
+    GameObject respawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,9 @@ public class PlayerController : MonoBehaviour
 
         // Get a ground layer mask for raycasts that can only hit ground
         groundMask = LayerMask.GetMask("Ground");
+
+        // Get respawn point
+        respawnPoint = GameObject.FindWithTag("Respawn");
     }
 
     // Update is called once per frame
@@ -95,5 +99,11 @@ public class PlayerController : MonoBehaviour
         Vector3 flippedScale = transform.localScale;
         flippedScale.x *= -1;
         transform.localScale = flippedScale;
+    }
+
+    public void respawn()
+    {
+        transform.position = respawnPoint.transform.position;
+        rb2d.velocity = Vector3.zero;
     }
 }

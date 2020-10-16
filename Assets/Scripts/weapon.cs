@@ -10,13 +10,13 @@ public class weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             shoot();
         }
     }
 
-    void shoot ()
+    void shoot()
     {
         GameObject bullet = Instantiate(bulletpre, firePoint.position, firePoint.rotation);
 
