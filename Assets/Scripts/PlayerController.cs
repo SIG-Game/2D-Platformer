@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     // Set in the Unity Editor
     public float maxSpeed;
     public float jumpVelocity;
+    public float dashMultiplier;
+    public float dashTime;
 
     // Defined by the script
     Rigidbody2D rb2d;
@@ -14,6 +16,8 @@ public class PlayerController : MonoBehaviour
     Vector2 colliderLowerRight;
     LayerMask groundMask;
     GameObject respawnPoint;
+    bool dashing;
+    float dashDir;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +46,7 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
 
         // Flip player if they are moving in the opposite direction
-        if (horizontal == -transform.localScale.x)
+        if (horizontal != 0.0f && Mathf.Sign(horizontal) == -transform.localScale.x)
         {
             flipPlayer();
         }
@@ -56,10 +60,50 @@ public class PlayerController : MonoBehaviour
         {
             // Set new vertical velocity to jump velocity
             vertVel = jumpVelocity;
+
+            // Reset gravity (for jumping while dashing)
+            rb2d.gravityScale = 3.0f;
         }
 
+        // Run once when the dash is started
+        if (Input.GetButtonDown("Dash") && horizontal != 0.0f && !dashing)
+        {
+            vertVel = 0.0f;
+            StartCoroutine("Dash");
+        }
+
+        // Run for multiple frames while dashing
+        if (dashing)
+        {
+            horizVel *= dashMultiplier;
+            
+            // Stop dash when the player turns around or stops moving
+            if (transform.localScale.x != dashDir || rb2d.velocity.x == 0.0f)
+            {
+                StopCoroutine("Dash");
+                stopDash();
+            }
+        }
+        
         // Apply velocities to the player
         rb2d.velocity = new Vector2(horizVel, vertVel);
+    }
+
+    IEnumerator Dash()
+    {
+        dashing = true;
+        dashDir = transform.localScale.x;
+        rb2d.gravityScale = 0.0f;
+
+        // Pause for set time and then stop dash
+        yield return new WaitForSecondsRealtime(dashTime);
+        stopDash();
+    }
+
+    void stopDash()
+    {
+        dashing = false;
+        rb2d.gravityScale = 3.0f;
     }
 
     bool isGrounded()
