@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
         dashing = true;
         dashDir = transform.localScale.x;
         rb2d.gravityScale = 0.0f;
+        GetComponent<SpriteTrail>().startTrail();
 
         // Pause for set time and then stop dash
         yield return new WaitForSecondsRealtime(dashTime);
@@ -104,6 +105,7 @@ public class PlayerController : MonoBehaviour
     {
         dashing = false;
         rb2d.gravityScale = 3.0f;
+        GetComponent<SpriteTrail>().stopTrail();
     }
 
     bool isGrounded()

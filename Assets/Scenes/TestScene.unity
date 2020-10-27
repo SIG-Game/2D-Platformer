@@ -1066,7 +1066,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 70, y: 1}
+  m_Size: {x: 100, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &189019804
 MonoBehaviour:
@@ -2009,6 +2009,7 @@ GameObject:
   - component: {fileID: 1964087754}
   - component: {fileID: 1964087753}
   - component: {fileID: 1964087757}
+  - component: {fileID: 1964087752}
   - component: {fileID: 1964087756}
   - component: {fileID: 1964087755}
   m_Layer: 0
@@ -2018,6 +2019,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1964087752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964087751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 939720fe588d6ae41a49dd42a666a361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 0.02
+  fadeSpeed: 5
+  firstSpriteOrder: 2
+  trailSprite: {fileID: 5880475136326204316, guid: 3658e8c535410bf45a07534cd1a8d8c0,
+    type: 3}
+  trailColor: {r: 0, g: 0.64705884, b: 1, a: 0.627451}
 --- !u!212 &1964087753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2055,9 +2074,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: -578681041
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b2f902d56d8656441942c3d9aa41eccc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
