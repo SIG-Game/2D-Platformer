@@ -2096,7 +2096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4b1b1097fd9d94ca760af2a3bcc24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 3
 --- !u!1 &1590431434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,3 +2311,4 @@ MonoBehaviour:
   jumpVelocity: 12
   dashMultiplier: 2.5
   dashTime: 0.25
+  dashCooldown: 0.5

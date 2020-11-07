@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpVelocity;
     public float dashMultiplier;
     public float dashTime;
+    public float dashCooldown;
 
     // Defined by the script
     Rigidbody2D rb2d;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     GameObject respawnPoint;
     bool dashing;
     float dashDir;
+    bool dashCooling;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +68,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Run once when the dash is started
-        if (Input.GetButtonDown("Dash") && horizontal != 0.0f && !dashing)
+        if (Input.GetButtonDown("Dash") && horizontal != 0.0f && !dashing && !dashCooling)
         {
             vertVel = 0.0f;
             StartCoroutine("Dash");
@@ -96,7 +98,7 @@ public class PlayerController : MonoBehaviour
         rb2d.gravityScale = 0.0f;
         GetComponent<SpriteTrail>().startTrail();
 
-        // Pause for set time and then stop dash
+        // Wait for set dash time and then stop dash
         yield return new WaitForSecondsRealtime(dashTime);
         stopDash();
     }
@@ -106,6 +108,15 @@ public class PlayerController : MonoBehaviour
         dashing = false;
         rb2d.gravityScale = 3.0f;
         GetComponent<SpriteTrail>().stopTrail();
+        StartCoroutine("cooldownDash");
+    }
+
+    IEnumerator cooldownDash()
+    {
+        // Wait for set dash cooldown time and then allow dashing
+        dashCooling = true;
+        yield return new WaitForSecondsRealtime(dashCooldown);
+        dashCooling = false;
     }
 
     bool isGrounded()
