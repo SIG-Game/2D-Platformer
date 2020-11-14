@@ -67,6 +67,14 @@ public class PlayerController : MonoBehaviour
             rb2d.gravityScale = 3.0f;
         }
 
+        // Cancel jump when the jump button is released
+        // This condition must be changed if a way to apply upward velocity to
+        // the player outside of a jump is added
+        if (Input.GetButtonUp("Jump") && rb2d.velocity.y > 0.0f)
+        {
+            vertVel = 0.0f;
+        }
+
         // Run once when the dash is started
         if (Input.GetButtonDown("Dash") && horizontal != 0.0f && !dashing && !dashCooling)
         {
