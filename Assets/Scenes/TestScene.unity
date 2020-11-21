@@ -889,7 +889,33 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 173241502}
     m_ColliderPaths:
-    - - X: 229999900
+    - - X: -30000000
+        Y: 0
+      - X: -30000000
+        Y: -20000000
+      - X: -40000000
+        Y: -20000000
+      - X: -40000000
+        Y: 10000000
+      - X: -50000000
+        Y: 10000000
+      - X: -50000000
+        Y: -20000000
+      - X: -80000000
+        Y: -20000000
+      - X: -80000000
+        Y: 0
+      - X: -90000000
+        Y: 0
+      - X: -90000000
+        Y: -20000000
+      - X: -100000000
+        Y: -20000000
+      - X: -100000000
+        Y: -30000000
+      - X: 230000000
+        Y: -30000000
+      - X: 230000000
         Y: -20000000
       - X: 210000000
         Y: -20000000
@@ -927,36 +953,10 @@ CompositeCollider2D:
         Y: -20000000
       - X: -20000000
         Y: 0
-      - X: -30000000
-        Y: 0
-      - X: -30000000
-        Y: -20000000
-      - X: -40000000
-        Y: -20000000
-      - X: -40000000
-        Y: 10000000
-      - X: -50000000
-        Y: 10000000
-      - X: -50000000
-        Y: -20000000
-      - X: -80000000
-        Y: -20000000
-      - X: -80000000
-        Y: 0
-      - X: -90000000
-        Y: 0
-      - X: -90000000
-        Y: -20000000
-      - X: -100000000
-        Y: -20000000
-      - X: -100000000
-        Y: -30000000
-      - X: 229999900
-        Y: -30000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 22.99996, y: -3}
-      - {x: 22.99996, y: -2}
+    - - {x: 22.999971, y: -3}
+      - {x: 22.999971, y: -2}
       - {x: 21, y: -1.9999707}
       - {x: 20.999971, y: -1}
       - {x: 20, y: -0.9999706}
@@ -1389,12 +1389,12 @@ Tilemap:
   - first: {x: 15, y: -2, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 9
+      m_TileIndex: 10
       m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 2147483648
   - first: {x: 0, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -1647,7 +1647,21 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  m_AnimatedTiles: {}
+  m_AnimatedTiles:
+  - first: {x: 15, y: -2, z: 0}
+    second:
+      m_AnimatedSprites:
+      - {fileID: -1928200300737814378, guid: 5bd7c0defabfb0a419388693ac95fdd3, type: 3}
+      - {fileID: -1417400593713708136, guid: 5bd7c0defabfb0a419388693ac95fdd3, type: 3}
+      - {fileID: -4234159622298737130, guid: 5bd7c0defabfb0a419388693ac95fdd3, type: 3}
+      - {fileID: 8648726954729752633, guid: 5bd7c0defabfb0a419388693ac95fdd3, type: 3}
+      - {fileID: -8005984628153883616, guid: 5bd7c0defabfb0a419388693ac95fdd3, type: 3}
+      - {fileID: -3334455670416319352, guid: 5bd7c0defabfb0a419388693ac95fdd3, type: 3}
+      - {fileID: 3752207423680860611, guid: 5bd7c0defabfb0a419388693ac95fdd3, type: 3}
+      - {fileID: -2128196322386198037, guid: 5bd7c0defabfb0a419388693ac95fdd3, type: 3}
+      m_AnimationSpeed: 12
+      m_AnimationTimeOffset: 0
+      m_IsLooping: 1
   m_TileAssetArray:
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 1eb408230b109214db3437e6b6d646f1, type: 2}
@@ -1667,10 +1681,10 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: f4c2e9eca53164a4f91483260c5585e9, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 49bc58cfda00fb54691235d89569f3d7, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 39acc151923009d43b63008070fbd3ab, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: e80677c632814624a8e9dcb892bea49a, type: 2}
   - m_RefCount: 20
     m_Data: {fileID: 11400000, guid: dba8ed06c57a68b40bf02c3a0ff17945, type: 2}
   - m_RefCount: 7
@@ -1706,7 +1720,7 @@ Tilemap:
     m_Data: {fileID: -1214015409815888125, guid: 2445dbaf6271fae4ea5cf518c1f2c2bb,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1928200300737814378, guid: 5bd7c0defabfb0a419388693ac95fdd3,
+    m_Data: {fileID: -2128196322386198037, guid: 5bd7c0defabfb0a419388693ac95fdd3,
       type: 3}
   - m_RefCount: 20
     m_Data: {fileID: 7503490461981356357, guid: 5519f635049662a4682ceb227356a801,
