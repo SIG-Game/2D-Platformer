@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     Vector2 colliderLowerRight;
     LayerMask groundMask;
     GameObject respawnPoint;
+    Interaction curInteraction;
     bool dashing;
     float dashDir;
     bool dashCooling;
@@ -94,6 +95,12 @@ public class PlayerController : MonoBehaviour
                 stopDash();
             }
         }
+
+        // Interact when interact button is pressed and touching interactive object
+        if (Input.GetButtonDown("Interact") && curInteraction != null)
+        {
+            curInteraction.Interact();
+        }
         
         // Apply velocities to the player
         rb2d.velocity = new Vector2(horizVel, vertVel);
@@ -170,5 +177,20 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = respawnPoint.transform.position;
         rb2d.velocity = Vector3.zero;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Set object to interact with when entering interaction collider
+        if (collision.gameObject.tag == "Interactive")
+            curInteraction = collision.GetComponent<Interaction>();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Clear object to interact with when leaving interaction collider
+        if (collision.gameObject.tag == "Interactive" &&
+            collision.GetComponent<Interaction>() == curInteraction)
+            curInteraction = null;
     }
 }
