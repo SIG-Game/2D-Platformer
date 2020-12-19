@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1988656676895439871}
-  bulletpre: {fileID: 313337084785691860, guid: d4d92896beafc4dbcad3d3f72c612bd3,
+  bulletpre: {fileID: 313337084785691860, guid: 80961693cec90423c9b5727974149230,
     type: 3}
 --- !u!1 &1988656677545716979
 GameObject:
