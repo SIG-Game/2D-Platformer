@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     Vector2 colliderLowerRight;
     LayerMask groundMask;
     GameObject respawnPoint;
+    Interaction curInteraction;
     bool dashing;
     float dashDir;
     bool dashCooling;
@@ -68,6 +69,14 @@ public class PlayerController : MonoBehaviour
             rb2d.gravityScale = 3.0f;
         }
 
+        // Cancel jump when the jump button is released
+        // This condition must be changed if a way to apply upward velocity to
+        // the player outside of a jump is added
+        if (Input.GetButtonUp("Jump") && rb2d.velocity.y > 0.0f)
+        {
+            vertVel = 0.0f;
+        }
+
         // Run once when the dash is started
         if (Input.GetButtonDown("Dash") && horizontal != 0.0f && !dashing && !dashCooling)
         {
@@ -86,6 +95,12 @@ public class PlayerController : MonoBehaviour
                 StopCoroutine("Dash");
                 stopDash();
             }
+        }
+
+        // Interact when interact button is pressed and touching interactive object
+        if (Input.GetButtonDown("Interact") && curInteraction != null)
+        {
+            curInteraction.Interact();
         }
         
         // Apply velocities to the player
@@ -163,5 +178,20 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = respawnPoint.transform.position;
         rb2d.velocity = Vector3.zero;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Set object to interact with when entering interaction collider
+        if (collision.gameObject.tag == "Interactive")
+            curInteraction = collision.GetComponent<Interaction>();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Clear object to interact with when leaving interaction collider
+        if (collision.gameObject.tag == "Interactive" &&
+            collision.GetComponent<Interaction>() == curInteraction)
+            curInteraction = null;
     }
 }
