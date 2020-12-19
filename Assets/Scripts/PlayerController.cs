@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float dashMultiplier;
     public float dashTime;
     public float dashCooldown;
+    public int curHealth;
 
     // Defined by the script
     Rigidbody2D rb2d;

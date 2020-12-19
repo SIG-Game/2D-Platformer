@@ -150,6 +150,7 @@ MonoBehaviour:
   dashMultiplier: 2.5
   dashTime: 0.25
   dashCooldown: 0.5
+  curHealth: 5
 --- !u!114 &1988656677545716988
 MonoBehaviour:
   m_ObjectHideFlags: 0
